@@ -42,11 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const filteredCode = codeText
             .split('\n')
             .filter(line => {
-                return (
-                    !line.startsWith("#define") || 
-                    line.trim() === '#define endll "\\n"' || 
-                    line.trim() === '#define sp " "'
-                );
+                return !line.startsWith("#define");
             })
             .join('\n');
         
