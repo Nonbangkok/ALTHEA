@@ -25,6 +25,14 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             regex: /#include\s*<Nonbangkok\.h>/g,
             replacer: `#include <bits/stdc++.h>`
+        },
+        {
+            regex: /\bendll\b/g,
+            replacer: `"\\n"`
+        },
+        {
+            regex: /\bsp\b/g,
+            replacer: `" "`
         }
     ];
 
