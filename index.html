@@ -3,29 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ALTHEA</title>
+  <title>ALTHEA — C++ Translator</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
   <link rel="stylesheet" href="styles.css" />
-  <script src="script.js"></script>
 </head>
 <body>
+
   <header>
-    <h1>ALTHEA</h1>
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-bracket">&lt;</span>ALTHEA<span class="logo-bracket">/&gt;</span>
+      </div>
+      <p class="tagline">C++ Shorthand Translator · Client-side · Zero latency</p>
+    </div>
   </header>
+
   <main>
-    <section class="input-section">
-      <h2>Input Your Code</h2>
-      <textarea id="inputCode" placeholder="Paste your C++ code here..."></textarea>
-      <button id="processBtn">Process Code</button>
-    </section>
-    <section class="output-section">
-      <h2>Processed Code</h2>
-      <pre id="outputCode"></pre>
-      <button id="copyBtn">Copy to Clipboard</button>
-      <span id="copyMessage" class="hidden">Copied to clipboard!</span>
-    </section>
+    <div class="toolbar">
+      <div class="toolbar-left">
+        <label class="auto-toggle">
+          <input type="checkbox" id="autoProcess" />
+          <span class="toggle-track"></span>
+          <span class="toggle-label">Auto-translate</span>
+        </label>
+      </div>
+      <div class="toolbar-right">
+        <button id="clearBtn" class="btn btn-ghost">Clear</button>
+        <button id="processBtn" class="btn btn-primary">
+          <span class="btn-icon">&#9654;</span> Translate
+        </button>
+      </div>
+    </div>
+
+    <div class="panes">
+      <div class="pane pane-input">
+        <div class="pane-header">
+          <span class="pane-label">INPUT <span class="lang-badge">Nonbangkok.h</span></span>
+        </div>
+        <div class="editor-wrapper">
+          <pre class="editor-highlight" id="inputHighlight" aria-hidden="true"></pre>
+          <textarea
+            id="inputCode"
+            spellcheck="false"
+            wrap="off"
+            placeholder="#include <Nonbangkok.h>&#10;&#10;int main() {&#10;    macos;&#10;    forr(i, 0, n) {&#10;        cout << sp << endll;&#10;    }&#10;}"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="divider">
+        <div class="divider-arrow">&#8644;</div>
+      </div>
+
+      <div class="pane pane-output">
+        <div class="pane-header">
+          <span class="pane-label">OUTPUT <span class="lang-badge lang-badge-green">Standard C++</span></span>
+          <div class="output-actions">
+            <button id="copyBtn" class="btn btn-ghost btn-sm">
+              <span id="copyIcon">&#10697;</span>
+              <span id="copyLabel">Copy</span>
+            </button>
+          </div>
+        </div>
+        <pre id="outputCode"><span class="placeholder">// Translated code will appear here...</span></pre>
+      </div>
+    </div>
   </main>
+
   <footer>
-    <p>&copy; 2025 ALTHEA. All Rights Reserved.</p>
+    <span>&copy; 2025 ALTHEA</span>
+    <span class="footer-sep">·</span>
+    <span>All processing is local — your code never leaves this page.</span>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
